@@ -1,0 +1,89 @@
+:root{
+  --bg: #fff;
+  --text: #111;
+  --accent: #7b0000; /* vermelho escuro */
+  --card: #fff;
+  --muted: #666;
+  --radius: 12px;
+}
+
+/* reset e base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.45;
+}
+
+/* header hero sem imagem */
+.hero{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  padding:24px;
+  background: linear-gradient(90deg, var(--accent), #4b0000);
+  color:#fff;
+}
+.hero-badge{
+  width:120px;
+  height:120px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.08));
+  border:3px solid rgba(255,255,255,0.12);
+  text-align:center;
+  padding:8px;
+}
+.hero-content h1{margin:0 0 6px 0;font-size:28px}
+.hero-content .subtitle{margin:0;opacity:0.95}
+
+/* layout */
+.container{max-width:1000px;margin:28px auto;padding:0 16px;}
+.card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-bottom:18px}
+.albums-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.album{display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;padding:8px;border-radius:10px;border:1px solid rgba(0,0,0,0.05)}
+.placeholder-cover{
+  width:100%;
+  height:160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  color:#fff;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+}
+
+/* geração de capas diferentes via classes */
+.cover-1{background: linear-gradient(135deg,#7b0000,#4b0000);}
+.cover-2{background: linear-gradient(135deg,#900d0d,#5b0000);}
+.cover-3{background: linear-gradient(135deg,#a10000,#6a0000);}
+.cover-4{background: linear-gradient(135deg,#8b0000,#3f0000);}
+
+.album h3{margin:0;font-size:16px}
+.album p{margin:0;color:var(--muted);font-size:13px}
+.link-like{background:none;border:0;color:var(--accent);cursor:pointer;padding:6px;font-weight:600}
+
+/* accessibility menu */
+.accessibility-menu{position:fixed;top:12px;right:12px;background:var(--accent);padding:8px;border-radius:10px;display:flex;flex-direction:column;gap:6px;z-index:1000}
+.accessibility-menu button{background:#fff;border:0;padding:6px 8px;border-radius:6px;cursor:pointer;font-weight:700}
+
+/* album detail */
+.hidden{display:none}
+.album-cover{width:220px;height:220px;object-fit:cover;border-radius:8px;margin:8px 0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+
+/* Alto contraste (toggle) */
+body.high-contrast{
+  --bg: #000;
+  --text: #fff;
+  --accent: #ffd400;
+  --card: #111;
+}
+.footer{text-align:center;padding:12px;color:var(--muted);font-size:14px}
