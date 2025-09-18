@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Camila Cabello 💃</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Botões de acessibilidade */
+    .accessibility-menu {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #b30000;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 1000;
+    }
+
+    .accessibility-menu button {
+      background: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .accessibility-menu button:hover {
+      background: #ddd;
+    }
+
+    /* Alto contraste */
+    body.high-contrast {
+      background-color: #000;
+      color: #fff;
+    }
+
+    body.high-contrast a {
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="accessibility-menu">
+    <button id="increase-font">A+</button>
+    <button id="decrease-font">A-</button>
+    <button id="contrast-toggle">◐</button>
+  </div>
+
+  <main>
+    <h1>Camila Cabello 💃</h1>
+    <p>
+      Camila Cabello é uma cantora e compositora cubana-americana que ganhou fama no grupo Fifth Harmony e depois seguiu carreira solo, conquistando o mundo com seus hits.
+    </p>
+  </main>
+
+  <script>
+    let fontSize = 16;
+
+    document.getElementById("increase-font").addEventListener("click", () => {
+      fontSize += 2;
+      document.body.style.fontSize = fontSize + "px";
+    });
+
+    document.getElementById("decrease-font").addEventListener("click", () => {
+      if (fontSize > 10) {
+        fontSize -= 2;
+        document.body.style.fontSize = fontSize + "px";
+      }
+    });
+
+    document.getElementById("contrast-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("high-contrast");
+    });
+  </script>
+</body>
+</html>
