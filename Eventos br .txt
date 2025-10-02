@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventos BR</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: #b71c1c;
+      color: white;
+    }
+
+    header .nav-link {
+      color: white !important;
+    }
+
+    .inicio-fundo {
+      background: #fce4ec;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .fundo-galeria {
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #b71c1c;
+      color: white;
+    }
+
+    /* Acessibilidade */
+    #acessibilidade {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .opcoes-acessibilidade {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+      gap: 5px;
+    }
+
+    .opcoes-acessibilidade.mostrar {
+      display: flex;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background-color: #111 !important;
+      color: #f1f1f1 !important;
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background: #000 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="p-4">
+    <nav class="container d-flex justify-content-between align-items-center">
+      <h1 class="h3">Eventos BR</h1>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+
+      <div id="acessibilidade" class="menu-acessibilidade text-center">
+        <button id="botao-acessibilidade" class="btn btn-light fw-bold">Acessibilidade</button>
+        <div id="opcoes-acessibilidade" class="opcoes-acessibilidade">
+          <button id="aumentar-fonte" class="btn btn-danger fw-bold">A +</button>
+          <button id="diminuir-fonte" class="btn btn-danger fw-bold">A -</button>
+          <button id="toggle-dark" class="btn btn-secondary">🌙 / ☀️</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo -->
+  <main class="container my-5">
+    <section id="inicio" class="my-5">
+      <div class="inicio-fundo d-flex flex-wrap align-items-center justify-content-between">
+        <div class="col-md-6">
+          <h2 class="fw-bold">Bem-vindo ao Eventos BR</h2>
+          <p class="lead">Aqui você encontra os principais eventos culturais, musicais e esportivos do Brasil.</p>
+          <a href="#eventos" class="btn btn-danger btn-lg rounded-pill fw-semibold">Ver eventos</a>
+        </div>
+        <img src="img/evento-principal.jpg" alt="Palco iluminado em um grande evento"
+          class="img-fluid rounded mt-3 col-md-5">
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="text-center p-3 mt-5">
+    <p>Acompanhe nas redes sociais:</p>
+    <a href="https://wa.me/5500000000000" target="_blank" class="me-3 text-white"><i class="bi bi-whatsapp"></i></a>
+    <a href="https://instagram.com" target="_blank" class="me-3 text-white"><i class="bi bi-instagram"></i></a>
+    <a href="https://tiktok.com" target="_blank" class="text-white"><i class="bi bi-tiktok"></i></a>
+    <p class="mt-3">Eventos BR - Projeto fictício sem fins comerciais.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const botaoAcessibilidade = document.getElementById("botao-acessibilidade");
+    const opcoesAcessibilidade = document.getElementById("opcoes-acessibilidade");
+
+    botaoAcessibilidade.addEventListener("click", () => {
+      opcoesAcessibilidade.classList.toggle("mostrar");
+    });
+
+    const aumentarFonte = document.getElementById("aumentar-fonte");
+    const diminuirFonte = document.getElementById("diminuir-fonte");
+    let tamanhoFonte = 16;
+
+    aumentarFonte.addEventListener("click", () => {
+      tamanhoFonte += 2;
+      document.body.style.fontSize = tamanhoFonte + "px";
+    });
+
+    diminuirFonte.addEventListener("click", () => {
+      if (tamanhoFonte > 12) {
+        tamanhoFonte -= 2;
+        document.body.style.fontSize = tamanhoFonte + "px";
+      }
+    });
+
+    const toggleDark = document.getElementById("toggle-dark");
+    toggleDark.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+</html>
